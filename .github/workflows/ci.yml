@@ -32,3 +32,9 @@ jobs:
 
       - name: Vitest (testes)
         run: npm run test:run
+
+      # Último porque é o passo mais caro, mas indispensável: `typecheck` roda
+      # tsc --noEmit só sobre o tsconfig da app, então não enxerga o
+      # vite.config.ts. Um build quebrado já passou despercebido por isso.
+      - name: Build de produção
+        run: npm run build
