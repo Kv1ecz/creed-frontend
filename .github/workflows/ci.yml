@@ -1,0 +1,34 @@
+# Portão que protege a branch principal (ADR-003, secao 4.2).
+# Roda a suíte completa: lint, formatação, tipos e testes.
+# É obrigatório porque pre-commit pode ser contornado com --no-verify.
+name: CI Front-end
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+
+jobs:
+  qualidade:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      - name: ESLint (qualidade de código)
+        run: npm run lint
+
+      - name: Prettier (formatação)
+        run: npm run format:check
+
+      - name: TypeScript (verificação estática de tipos)
+        run: npm run typecheck
+
+      - name: Vitest (testes)
+        run: npm run test:run
