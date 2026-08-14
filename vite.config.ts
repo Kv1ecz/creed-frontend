@@ -1,11 +1,15 @@
-import { defineConfig } from 'vite';
+// defineConfig vem de vitest/config, não de vite: só essa versão conhece a
+// chave `test` usada abaixo.
+import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
-import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 export default defineConfig({
   plugins: [react()],
   resolve: {
-    alias: { '@': path.resolve(__dirname, './src') },
+    // Resolvido a partir de import.meta.url: o projeto é "type": "module" e
+    // __dirname não existe em ESM.
+    alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) },
   },
   server: {
     port: 5173,

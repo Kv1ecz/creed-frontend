@@ -21,7 +21,7 @@ const initialState: RespondentesState = {
 
 export const carregarRespondentes = createAsyncThunk(
   'respondentes/carregar',
-  async (pagina: number = 1) => respondentesApi.listar({ pagina }),
+  async (pagina: number) => respondentesApi.listar({ pagina }),
 );
 
 const respondentesSlice = createSlice({
@@ -45,7 +45,8 @@ const respondentesSlice = createSlice({
       })
       .addCase(carregarRespondentes.rejected, (state, action) => {
         state.status = 'erro';
-        state.erro = action.error.message ?? 'Não foi possível carregar a lista.';
+        state.erro =
+          action.error.message ?? 'Não foi possível carregar a lista.';
       });
   },
 });

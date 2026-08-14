@@ -43,7 +43,8 @@ export function RespondentesView() {
               <span className="font-medium">{respondente.nome}</span>
               <span className="ml-2 text-sm text-slate-500">
                 {respondente.pais ?? '—'}
-                {respondente.idade !== null && `, ${String(respondente.idade)} anos`}
+                {respondente.idade !== null &&
+                  `, ${String(respondente.idade)} anos`}
               </span>
             </li>
           ))}

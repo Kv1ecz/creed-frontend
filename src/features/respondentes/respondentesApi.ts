@@ -27,5 +27,5 @@ export const respondentesApi = {
   criar: (dados: RespondenteCreate) =>
     apiClient.post<Respondente>('/respondentes', dados),
 
-  remover: (id: string) => apiClient.delete<void>(`/respondentes/${id}`),
+  remover: (id: string) => apiClient.delete(`/respondentes/${id}`),
 };
