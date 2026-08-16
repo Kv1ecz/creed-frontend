@@ -36,7 +36,7 @@ O Vite faz proxy de `/api` para `http://localhost:8000` (backend).
 |---|---|
 | `npm run lint` | ESLint — qualidade de código |
 | `npm run format:check` | Prettier — formatação |
-| `npm run typecheck` | `tsc --noEmit` — tipos |
+| `npm run typecheck` | `tsc -b --noEmit` — tipos (app + configs de build) |
 | `npm run test:run` | Vitest — testes |
 | `npm run check` | Tudo acima, na ordem do CI |
 
