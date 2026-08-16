@@ -2,6 +2,9 @@
 
 React + TypeScript sobre Vite. Decisões no **ADR-003**.
 
+Antes do primeiro PR, leia a [cartilha de contribuição](CONTRIBUTING.md) —
+fluxo de branches, padrão de nome e de commit.
+
 ## Stack
 
 Vite · TypeScript · Tailwind v4 · shadcn/ui · Redux Toolkit · i18next · Vitest
