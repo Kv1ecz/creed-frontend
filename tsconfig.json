@@ -3,5 +3,11 @@
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
-  ]
+  ],
+  // Duplicado de tsconfig.app.json: ferramentas externas (CLI do shadcn)
+  // leem os aliases daqui, não dos projetos referenciados.
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": { "@/*": ["./src/*"] }
+  }
 }

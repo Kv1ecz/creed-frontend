@@ -4,6 +4,9 @@ import { Provider } from 'react-redux';
 import { RouterProvider } from 'react-router-dom';
 import { store } from '@/app/store';
 import { router } from '@/app/routes';
+import '@fontsource-variable/geist';
+// Efeito colateral: inicializa o i18next antes do primeiro render.
+import '@/i18n/config';
 import '@/index.css';
 
 const container = document.getElementById('root');
