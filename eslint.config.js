@@ -56,6 +56,15 @@ export default tseslint.config(
       '@typescript-eslint/no-non-null-assertion': 'off',
     },
   },
+  {
+    // Código gerado pelo `shadcn add` e sobrescrito a cada atualização do
+    // componente: exportar variantes junto do componente é o padrão da
+    // biblioteca, não um desvio nosso.
+    files: ['src/components/ui/**/*.{ts,tsx}'],
+    rules: {
+      'react-refresh/only-export-components': 'off',
+    },
+  },
   // SEMPRE por último: desliga regras de estilo conflitantes com o Prettier.
   prettierConfig,
 );
