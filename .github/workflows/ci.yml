@@ -1,11 +1,13 @@
-# Portão que protege a branch principal (ADR-003, secao 4.2).
+# Portão que protege as branches permanentes (ADR-003, secao 4.2).
 # Roda a suíte completa: lint, formatação, tipos e testes.
 # É obrigatório porque pre-commit pode ser contornado com --no-verify.
 name: CI Front-end
 
 on:
+  # As duas branches permanentes: dev é o alvo dos PRs de tarefa, main recebe
+  # o merge de release. `pull_request` sem filtro cobre PR para qualquer alvo.
   push:
-    branches: [main, develop]
+    branches: [main, dev]
   pull_request:
 
 jobs:
